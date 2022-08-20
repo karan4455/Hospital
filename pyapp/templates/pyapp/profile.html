@@ -1,0 +1,258 @@
+﻿{% extends 'pyapp/index.html' %}
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Profile <small class="text-muted">Welcome to MedSphere-experts</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                                                   
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="zmdi zmdi-home"></i> MedSphere-experts</a></li>
+                                                            <li class="breadcrumb-item">Doctors</li>
+                                                                                        <li class="breadcrumb-item active">Profile</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{did.pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 class="m-b-0"><strong>Dr. {{did.firstname}}</strong> {{did.lastname}}</h4>
+                        {% if did.specification %}
+                        <span class="job_post">{{did.specification}}</span>
+                        {% endif %}
+                        {% if did.clinic_address %}
+                        <p>{{did.clinic_address}}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-round">Follow</button>
+                        <button class="btn btn-primary btn-round btn-simple">Message</button>
+                    </div>
+                    <p class="social-icon m-t-5 m-b-0">
+                        <a title="Twitter" href="https://twitter.com/karanjethava03?t=2Qh4TIAK4rNeKJWJpGc0TQ&s=09"><i class="zmdi zmdi-twitter"></i></a>
+                        <a title="Facebook" href="https://www.facebook.com/karan.jethava.0312/"><i class="zmdi zmdi-facebook"></i></a>
+                        <a title="Instagram" href="https://www.instagram.com/_krn_3.0/"><i class="zmdi zmdi-instagram "></i></a>
+                    </p>
+                </div>                    
+            </div>                               
+            <div class="card">
+                <div class="body">
+                    <div class="workingtime">
+                        <h6>Working Time</h6>
+                        <small class="text-muted">Tuesday</small>
+                        <p>06:00 AM - 07:00 AM</p>
+                        <hr>
+                        <small class="text-muted">Thursday</small>
+                        <p>06:00 AM - 07:00 AM</p>
+                        <hr>
+                    </div>
+                    <div class="reviews">
+                        <h6>Reviews</h6>
+                        <small class="text-muted">Staff</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Punctuality</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Helpfulness</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Knowledge</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Cost</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+        <div class="col-lg-8 col-md-12">
+            {% if e_msg %}
+            <div class="alert alert-danger" role="alert">
+            {{e_msg}}    
+            </div>
+            {% endif %}
+            <div class="card">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Account">Account</a></li>                        
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane body active" id="about">
+                
+                        <h6>about the doctor:</h6>
+                        <hr>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p><strong>clinic Name:</strong> {{did.clinic_name}}</p>
+                            </li>
+                            <li>
+                                <p><strong>clinic city:</strong> {{did.clinic_city}}</p>
+                            </li>
+                            <li>
+                                <p><strong>clinic address:</strong> {{did.clinic_address}}</p>
+                            </li>
+                            <li>
+                                <p><strong>Certifications:</strong> Certified Chiropractic Sports Physician 1982</p>
+                            </li>
+                            <li>
+                                <p><strong>Gender:</strong> male</p>
+                            </li>
+                            <li>
+                                <p><strong>Experience:</strong> {{did.experience}}</p>
+                            </li>
+                           
+                        </ul>
+                        <h6>Specialties</h6>
+                        <hr>
+                        <ul class="list-unstyled specialties">
+                            <li>Breast Surgery</li>
+                            <li>Colorectal Surgery</li>
+                            <li>Endocrinology</li>
+                            <li>Cardiology</li>
+                            <li>Cosmetic Dermatology</li>
+                            <li>Mole checks and monitoring</li>
+                            <li>Clinical Neurophysiology</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane body" id="Account">
+                        <form action="{% url 'doc-pass-change' %}" method="post">
+                            {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="email" value="{{uid.email}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="currentpassword" placeholder="Current Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="newpassword" placeholder="New Password">
+                        </div>
+                        <input type="submit" class ="btn btn-info btn-round"  value="save changes">
+                    </form>
+
+                        <hr>
+                        <form method="post" action="{% url 'doc-profile' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.firstname}}" name="firstname" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.lastname}}" name="lastname" placeholder="Last Name">
+                                </div>
+                            </div>                                    
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.qualification}}" name="qualification" placeholder="qualification">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.specification}}" name="specification" placeholder="specification">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.available_time}}" name="available_time"  placeholder="available time">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.mobile}}" name="mobile" placeholder="mobile">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.clinic_name}}" name="clinic_name" placeholder="clinic name">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.clinic_city}}" name="clinic_city" placeholder="Clini city">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{did.experience}}" name="experience" placeholder="Experience">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <textarea rows="4" class="form-control no-resize" value="{{did.clinic_address}}" name="clinic_address" placeholder="clinic address"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group m-b-10">
+                                    <input type="file" rows="4" class="form-control no-resize" name="pic" >
+                                </div>
+                            </div>
+
+                            
+                            
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-primary btn-round" value="save changes">
+                            </div>
+                        </div>
+                        </form>
+                    </div>                        
+                </div>
+            </div>
+                          
+        </div>
+    </div>
+
+            </div>
+</section>
+{% endblock %}
+
+
+       

@@ -1,0 +1,75 @@
+﻿{% extends 'pyapp/index.html' %}
+{% block content %}
+
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Patient Request <small class="text-muted">Welcome to MedSphere experts</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                                                    
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="zmdi zmdi-home"></i> MedSphere experts</a></li>
+                                                            <li class="breadcrumb-item">Patients</li>
+                                                                                        <li class="breadcrumb-item active">All Patients</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix">
+        <div class="col-md-12">
+            
+                <div class="body">
+                 
+                        
+                    <!-- Tab panes -->
+                    <div class="tab-content m-t-10">
+                        <div class="tab-pane table-responsive active" id="All">
+                            <table class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr>                                       
+                                        <th>Media</th>
+                                        <th>Patients ID</th>
+                                        <th>First name</th>
+                                        <th>Last name</th>
+                                        <th>Age</th>
+                                        <th>Number</th>
+                                        <td>CASE STATUS</td>
+                                        <th colspan="2" style="text-align:center;"      >ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for p in pall %}
+                                    <tr>
+                                        <td><img src="{{p.patient_id.pic.url}}" height="50" width="50"></td>
+                                        <td><span class="list-name">{{p.id}}</span></td>
+                                        <td>{{p.patient_id.firstname}}</td>
+                                        <td>{{p.patient_id.lastname}}</td>
+                                        <td>{{p.patient_id.age}}</td>
+                                        <td>{{p.patient_id.mobile}}</td>
+                                        <td>{{p.case_status}}</td>
+                                        <td><a href="{% url 'approve-a' pk=p.id %}">APPROVE</td>
+                                        <td><a href="{% url 'reject-a' pk=p.id %}">REJECT</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </section>
+
+        {% endblock %}
+               

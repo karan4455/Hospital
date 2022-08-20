@@ -1,0 +1,171 @@
+﻿{% extends 'pyapp/index.html' %}
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Profile <small class="text-muted">Welcome to MedSphere-experts</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                                                    <!-- <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button> -->
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="zmdi zmdi-home"></i> MedSphere-experts</a></li>
+                                                            <li class="breadcrumb-item">Doctors</li>
+                                                                                        <li class="breadcrumb-item active">Profile</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{did_s.pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 class="m-b-0"><strong>Dr. {{did_s.firstname}}</strong> {{did_s.lastname}}</h4>
+                        {% if did_s.specification %}
+                        <span class="job_post">{{did_s.specification}}</span>
+                        {% endif %}
+                        {% if did_s.clinic_address %}
+                        <p>{{did_s.clinic_address}}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-round">Follow</button>
+                        <button class="btn btn-primary btn-round btn-simple">Message</button>
+                    </div>
+                    <p class="social-icon m-t-5 m-b-0">
+                        <a title="Twitter" href=""><i class="zmdi zmdi-twitter"></i></a>
+                        <a title="Facebook" href=""><i class="zmdi zmdi-facebook"></i></a>
+                        <a title="Instagram" href=""><i class="zmdi zmdi-instagram "></i></a>
+                    </p>
+                </div>                    
+            </div>                               
+            <div class="card">
+                <div class="body">
+                    <div class="workingtime">
+                        <h6>Working Time</h6>
+                        <small class="text-muted">monday to saturday</small>
+                        <p>10:00 AM - 09:00 PM</p>
+                        <hr>
+                        <small class="text-muted">sunday</small>
+                        <p>10:00 AM - 02:00 PM</p>
+                        <hr>
+                    </div>
+                    <div class="reviews">
+                        <h6>Reviews</h6>
+                        <small class="text-muted">Staff</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Punctuality</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Helpfulness</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Knowledge</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                        <small class="text-muted">Cost</small>
+                        <p>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                            <i class="zmdi zmdi-star-outline"></i>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+        <div class="col-lg-8 col-md-12">
+            {% if e_msg %}
+            <div class="alert alert-danger" role="alert">
+            {{e_msg}}    
+            </div>
+            {% endif %}
+            <div class="card">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                </ul>
+                <!-- <div class="tab-content"> -->
+                    <div class="tab-pane body active" id="about">
+                        <!-- <hr> -->
+                        <ul class="list-unstyled">
+                            <li>
+                                <p><strong>clinic name :  </strong>{{did_s.clinic_name}}</p>
+                            </li>
+                            <li>
+                                <p><strong>available time </strong> {{did_s.available_time}}</p>
+                            </li>
+                            <li>
+                                <p><strong>clinic city: </strong>{{did_s.clinic_city}}</p>
+                            </li>
+                            <li>
+                                <p><strong>clinic address: </strong>{{did_s.clinic_address}}</p>
+                            </li>
+                            <li>
+                                <p><strong>Gender:</strong> male</p>
+                            </li>
+                            <li>
+                                <p><strong>Experience :</strong>{{did_s.experience}}</p>
+                            </li>
+                    
+                                
+                    
+                        </ul>
+                        <!-- <h6>Specialties</h6>
+                        <hr>
+                        <ul class="list-unstyled specialties">
+                            <li>Pediatric Surgeon</li>
+                            <li>Neonatologist</li>
+                            <li>Developmental-Behavioural Pediatrician</li>
+                            <li>Pediatric Cardiologist</li>
+                            
+                        </ul> -->
+                    </div>                       
+                </div>
+            </div>
+                          
+        </div>
+    </div>
+
+            </div>
+</section>
+{% endblock %}
+
+
+       
