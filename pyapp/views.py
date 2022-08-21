@@ -461,7 +461,11 @@ def approve_a(request, pk):
             aid = Appointment.objects.get(id=pk)
             aid.status="APPROVE"
             aid.save()
-            send_mail("APPOINTMENT STATUS", "YOUR APPOINTMENT HAS BEEN CONFIRMED BY DOCTOR","karanjethava4455@gmail.com",[aid.patient_id.User_id.email])
+#             send_mail("APPOINTMENT STATUS", "YOUR APPOINTMENT HAS BEEN CONFIRMED BY DOCTOR","karanjethava4455@gmail.com",[aid.patient_id.User_id.email])
+            message = f'Hello User,\n\n Your Appointment is Approved by Doctor".\n\nThanks,\nTeam MedSphere'
+            from_email = settings.EMAIL_HOST_USER
+            send_mail("Appointment", message, from_email, [email])
+            messages.info(request, "Please check your email inbox.")
             return redirect("all-patients")
         else:
             pass
@@ -474,7 +478,11 @@ def reject_a(request, pk):
             aid = Appointment.objects.get(id=pk)
             aid.status="REJECT"
             aid.save()
-            send_mail("APPOINTMENT STATUS", "YOUR APPOINTMENT HAS BEEN NOT CONFIRMED BY DOCTOR","karanjethava4455@gmail.com",[aid.patient_id.User_id.email])
+#             send_mail("APPOINTMENT STATUS", "YOUR APPOINTMENT HAS BEEN NOT CONFIRMED BY DOCTOR","karanjethava4455@gmail.com",[aid.patient_id.User_id.email])
+            message = f'Hello User,\n\n Your Appointment is Rejected".\n\nThanks,\nTeam MedSphere'
+            from_email = settings.EMAIL_HOST_USER
+            send_mail("Appointment", message, from_email, [email])
+            messages.info(request, "Please check your email inbox.")
             return redirect("all-patients")
         else:
             pass
