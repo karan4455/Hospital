@@ -62,9 +62,9 @@ def register(request):
             # recipient_list = [User.email,]
             # send_mail( subject, message, email_from, recipient_list )
 
-            message = f'Hello {p_firstname},\n\nWelcome to Doctor Finder application!\n\nPlease note your password for initial login is "{password}".\n\nThanks,\nTeam Doctor Finder'
+            message = f'Hello {p_firstname},\n\nWelcome to MedSphere!\n\nPlease note your password for initial login is "{password}".\n\nThanks,\nTeam MedSphere'
             from_email = settings.EMAIL_HOST_USER
-            send_mail("Welcome to Doctor Finder",
+            send_mail("Welcome to MedSphere",
                         message, from_email, [p_email])
 
 
